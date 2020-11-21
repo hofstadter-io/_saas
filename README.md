@@ -1,40 +1,74 @@
-# _saas
+# `_saas`
 
-An open source toolset for SaaS operations by Hofstadter.
+An open source toolset for B2B SaaS operations by Hofstadter.
 
+### Running the example
 
-### Development setup
+The design is in the `./design/*.cue` files.
+It uses
 
-Have the latest hof (a bit tenuous, so check on chat if you have issues)
+- `hofmod-server` for a REST API and extras
+- `hofmod-cli` for the binary entrypoint
 
-Directory layout, if you are working on the modules in tandem.
-Check to see if there are any replace directives in `cue.mods`.
+##### Generate and build the server
 
-```
-work/
-  _saas/
-
-  # shortened, nested format for hofmods
-  mods/    # "hofmod"
-    model  # -"suffix
-    client
-    server
-    ...
-```
-
-Commands when you change replaced modules:
-
-```
-# dev-todo, enable a watch flag / scripting option
-# Revendor local modules (you need to do this if you change them)
-#   (this will vendor go and cue, you add a language name as an arg to run only that one)
+```sh
 hof mod vendor
-
-# Regenerate project implementation
-hof gen
+make server
 ```
 
-Per subcomponent build commands:
+##### Database setup
 
-tbd...
+```sh
+# Starts Postgres 13 in docker
+make db-up
+
+# Check db connection
+./server db test
+
+# Migrate the DB Schema
+./server db migrate
+
+# Seed the database
+./server db seed
+
+# Run the PSQL repl
+make psql
+
+# Stop the database
+make db-down
+
+# Destroy the database
+make db-nuke
+```
+
+##### Run the server
+
+```sh
+# Run the example server in dev mode
+./saas run
+
+# Print server config and secrets
+./saas config
+
+# Print server routes
+./saas routes
+```
+
+##### Calling the server
+
+```sh
+# bad route(s)
+curl localhost:1323              // not found  (404)
+
+# test auth
+saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get auth/test
+
+# alive & metrics
+saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/alive
+saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/metrics
+
+# entity routes
+saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get admin/user
+```
 

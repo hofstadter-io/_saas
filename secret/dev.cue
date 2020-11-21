@@ -6,10 +6,10 @@ Config: {
 	database: {
 		host: "localhost"
 		port: "5432"
-		dbname: "example"
+		dbname: "saas"
 
-		username: "example"
-		password: "example"
+		username: "saas"
+		password: "saas"
 
 		dsn: "host=\(host) user=\(username) password=\(password) dbname=\(dbname) port=\(port) sslmode=disable TimeZone=UTC"
 	}
