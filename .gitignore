@@ -1,0 +1,16 @@
+# vendor packages
+/cue.mod/pkg/
+/vendor/
+
+# the binary
+/saas
+
+# actual secrets, some we want to keep for dev setup
+/secret/gitless-*
+
+# data dir created by psql, redis, etc...
+/data/
+
+### temp!
+/.hof/
+/server/
