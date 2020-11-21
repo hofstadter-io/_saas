@@ -62,13 +62,13 @@ make db-nuke
 curl localhost:1323              // not found  (404)
 
 # test auth
-saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get auth/test
+./saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get auth/test
 
 # alive & metrics
-saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/alive
-saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/metrics
+./saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/alive
+./saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get internal/metrics
 
 # entity routes
-saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get admin/user
+./saas api -a 953e7caf-1fa6-4558-a693-4118fce9615e get admin/user
 ```
 
