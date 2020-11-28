@@ -47,3 +47,7 @@ psql:
 		postgres:13 \
 		psql postgresql://saas:saas@localhost:5432/saas
 
+.PHONY: cloc
+cloc:
+	cloc --read-lang-def=$$HOME/hof/jumpfiles/assets/cloc_defs.txt hof.cue ./design/ ./config/ ./secret/
+	cloc --read-lang-def=$$HOME/hof/jumpfiles/assets/cloc_defs.txt ./server/

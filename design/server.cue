@@ -15,7 +15,7 @@ ServerDesign: srv_s.#Server & {
 		users: true
 		groups: true
 		organizations: true
-		serviceaccounts: true
+		// serviceaccounts: true
 	}
 
 	AuthConfig: {

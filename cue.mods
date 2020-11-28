@@ -8,3 +8,4 @@ require (
 )
 
 replace github.com/hofstadter-io/hofmod-server => ../mods/server
+replace github.com/hofstadter-io/hofmod-cli => ../mods/cli
