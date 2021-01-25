@@ -27,7 +27,7 @@ db-up:
 		-e POSTGRES_USER=saas \
 		-e POSTGRES_PASSWORD=saas \
 		-v ${PWD}/data/db:/var/lib/postgresql/data \
-		postgres:13
+		postgres:13.1
 
 .PHONY: db-down
 db-down:
@@ -44,10 +44,14 @@ db-nuke: db-down db-clean
 psql:
 	@docker run --rm -it --name psql \
 		--network host \
-		postgres:13 \
+		postgres:13.1 \
 		psql postgresql://saas:saas@localhost:5432/saas
 
 .PHONY: cloc
 cloc:
 	cloc --read-lang-def=$$HOME/hof/jumpfiles/assets/cloc_defs.txt hof.cue ./design/ ./config/ ./secret/
 	cloc --read-lang-def=$$HOME/hof/jumpfiles/assets/cloc_defs.txt ./server/
+
+.PHONY: user
+user:
+	echo "'$$(id -u):$$(id -g)'"

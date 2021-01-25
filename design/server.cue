@@ -39,9 +39,9 @@ ServerDesign: srv_s.#Server & {
 	}
 
 	Resources: [{
-		// Model: CustomModels.Models.Maillist
-		// Routes: (srv_s.#DefaultResourceRoutes & { Model: CustomModels.Models.Maillist }).Routes
-	// },{
+	  Model: CustomModels.Models.Maillist
+	  Routes: (srv_s.#DefaultResourceRoutes & { Model: CustomModels.Models.Maillist }).Routes
+	 },{
 		Model: BuiltinModels.Models.User
 		Routes: [ for R in (srv_s.#DefaultResourceRoutes & { Model: BuiltinModels.Models.User }).Routes if strings.HasSuffix(R.Name, "Admin") && !strings.Contains(R.Name, "Create") { R } ]
 	}]

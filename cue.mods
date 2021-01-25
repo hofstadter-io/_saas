@@ -3,9 +3,10 @@ module github.com/hofstadter-io/_saas
 cue master
 
 require (
-  github.com/hofstadter-io/hof v0.5.14
-  github.com/hofstadter-io/hofmod-cli v0.7.1
+  github.com/hofstadter-io/hof v0.5.15
+  github.com/hofstadter-io/hofmod-cli v0.7.2
+  github.com/hofstadter-io/hofmod-server v0.1.2
 )
 
-replace github.com/hofstadter-io/hofmod-server => ../mods/server
-replace github.com/hofstadter-io/hofmod-cli => ../mods/cli
+// replace github.com/hofstadter-io/hofmod-server => ../mods/server
+// replace github.com/hofstadter-io/hofmod-cli => ../mods/cli
